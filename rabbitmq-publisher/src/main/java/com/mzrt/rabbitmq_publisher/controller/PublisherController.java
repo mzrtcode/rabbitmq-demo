@@ -18,7 +18,7 @@ public class PublisherController {
 
     private final RabbitTemplate rabbitTemplate;
 
-    @PostMapping("/color")
+    @PostMapping("/colors")
     public String publishColor(@RequestBody Model.Color color){
         this.rabbitTemplate.convertAndSend(EXCHANGE_NAME, ROUTING_KEY_COLOR, color);
         return "Color message sent successfully";
